@@ -2,7 +2,8 @@
 /**
  * Time complexity : O(n^2)
  * Space complexity : O(1)
- * Worst sorting algorithm : iterates over the entire array and swaps the elements if one is bigger than the other. Due to the nature of the algorithm, the two for loops result in a quadratic time complexity.
+ * Worst sorting algorithm : iterates over the entire array and swaps the elements if one is bigger than the other. 
+ * Due to the nature of the algorithm, the two for loops result in a quadratic time complexity.
  */
 
 function bubbleSort(arr) {

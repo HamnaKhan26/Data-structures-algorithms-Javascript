@@ -35,3 +35,15 @@ const newArr = removeDuplicates(arr1);
 
 console.log(newArr);
 
+//remove duplicates from a sorted array
+var removeDuplicates = function(nums) {
+    let j = 0; // Pointer for unique elements
+    for (let i = 1; i < nums.length; i++) {
+        if (nums[i] !== nums[j]) {
+            j++; // Move the pointer for unique elements
+            nums[j] = nums[i]; // Assign the unique element
+        }
+    }
+    // The number of unique elements is j + 1
+    return j + 1;
+};
