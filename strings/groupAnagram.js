@@ -1,4 +1,4 @@
-function groupAnagramsCategorizeByFrequency(strs) {
+function groupAnagramsCategorizeByFrequency(strs) {  //O(nk) time complexity where n is number of strings and k is max length of a string
   if (!strs || strs.length === 0) return [];
 
   const frequencyStringsMap = new Map();
