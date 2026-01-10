@@ -258,3 +258,42 @@ const grid20 = [
   [1, 2],
   [99, 1]
 ];
+
+
+function validateSudoku(grid) {
+
+    const n = grid.length;
+
+    const validSet = new Set();
+
+    for(let i = 0; i < n; i++) {
+        validSet.add(i+1);
+    }
+
+    //check rows
+    for (let i = 0; i < n ; i++) {
+        const rowSet = new Set();
+
+        for (let j = 0; j < n;j++) {
+         //   rowSet.add(grid[i][j]);
+            if(rowSet.has(grid[i][j]) || !validSet.has(grid[i][j]))
+                return false;
+            rowSet.add(grid[i][j]);
+        }
+    }
+
+    //check columns
+    for (let j = 0; j < n ; j++) {
+        const colSet = new Set();
+        for (let i = 0; i < n;i++) {
+            //   colSet.add(grid[i][j]);
+            if(colSet.has(grid[i][j]) || !validSet.has(grid[i][j]))
+                return false;
+            colSet.add(grid[i][j]);
+        }
+    }
+    return true;
+
+}
+
+console.log(validateSudoku(grid20))  //=> True
