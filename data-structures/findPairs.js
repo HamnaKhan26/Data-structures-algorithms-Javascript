@@ -59,3 +59,46 @@ const enrollments3 = [
   ["2", "Art History"],
   ["33", "Another"],
 ];
+
+
+function find_pairs(enrollments) {
+  // STEP 1: Build student -> courses map
+  const studentCourses = new Map();
+
+  for (const [student, course] of enrollments) {
+    if (!studentCourses.has(student)) {
+      studentCourses.set(student, new Set());
+    }
+    studentCourses.get(student).add(course);
+  }
+
+  // STEP 2: Get unique students
+  const students = Array.from(studentCourses.keys());
+
+  const result = {};
+
+  // STEP 3: Generate all unique student pairs
+  for (let i = 0; i < students.length; i++) {
+    for (let j = i + 1; j < students.length; j++) {
+      const s1 = students[i];
+      const s2 = students[j];
+
+      const courses1 = studentCourses.get(s1);
+      const courses2 = studentCourses.get(s2);
+
+      // STEP 4: Find shared courses (intersection)
+      const shared = [];
+      for (const course of courses1) {
+        if (courses2.has(course)) {
+          shared.push(course);
+        }
+      }
+
+      result[`${s1},${s2}`] = shared;
+    }
+  }
+
+  return result;
+}
+
+console.log(find_pairs(enrollments1));
