@@ -102,3 +102,15 @@ function find_pairs(enrollments) {
 }
 
 console.log(find_pairs(enrollments1));
+
+
+// ⏱ Complexity Analysis
+
+// Build map: O(n)
+
+// Student pairs: O(s²)
+
+// Course intersection: O(c) (small constant)
+
+// ➡ Total: O(n + s²)
+// ➡ Space: O(n)
