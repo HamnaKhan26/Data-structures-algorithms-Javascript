@@ -1,6 +1,6 @@
 var mergeTwoLists = function(list1, list2) {
-    let prehead = new ListNode(-1);  // Dummy node to simplify the logic
-    let current = prehead;           // Pointer to track the merged list
+    let dummy = new ListNode(-1);  // Dummy node to simplify the logic
+    let current = dummy;           // Pointer to track the merged list
 
     while (list1 && list2) {         // Traverse both lists
         if (list1.val < list2.val) {
@@ -16,7 +16,7 @@ var mergeTwoLists = function(list1, list2) {
     // Attach the remaining nodes if any list is left
     current.next = list1 || list2;
 
-    return prehead.next;  // Return the merged list, skipping the dummy node
+    return dummy.next;  // Return the merged list, skipping the dummy node
 };
 
 
